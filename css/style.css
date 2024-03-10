@@ -1,0 +1,192 @@
+/*Importando fonte*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/*Reset CSS*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*Set de cores*/
+:root{
+    --body-color: #1A1924;
+    --status-color: #00B37E;
+    --message-color: #633BBC;
+    --message-you-color: #07847E;
+    --send-color: #282843;
+    --texts-color: #E1E1E6;
+}
+
+/*Body*/
+body{
+    background: var(--body-color);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*Container app*/
+#app{
+    width: 100vw;
+    height: 100vh;
+    max-width: 1024px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    color: var(--texts-color);
+    padding: 24px 32px;
+}
+
+/*Container geral header*/
+#top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*Botao de fechar chat*/
+#top #close > i{
+    width: 20px;
+    height: 20px;
+}
+
+/*Container de informacoes do usuario*/
+#user-info{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/*Imagem*/
+#top #user-info > img{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+}
+/*Container informacoes*/
+#top #user-info > #infos{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/*Nome*/
+#top #user-info #infos #user-name{
+    font-size: 16px;
+}
+
+/*Status*/
+#user-status::before{
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--status-color);
+}
+
+#top #user-info #infos > #user-status{
+    color: var(--status-color);
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    font-size: 12px;
+}
+
+/*Container chat*/
+#content{
+    overflow-y: scroll;
+}
+
+/*Scroll chat*/
+#content::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ultima mensagem*/
+#content > #last-seen{
+    margin-top: 26px;
+    font-size: 12px;
+    text-align: center;
+}
+
+/*Container geral das mensagens*/
+#content > #messages{
+    margin-top: 30px;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*Container mensagem*/
+#content #messages > .message{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 12px;
+}
+
+/*Corpo da mensagem*/
+#content #messages .message > .body{
+    padding: 14px;
+    background: var(--message-color);
+    width: fit-content;
+}
+
+/*Estilizando corpo da mensem, menos da classe you*/
+#content #messages .message > .body:not(.you){
+    max-width: 40vw;
+    border-radius: 0 8px 8px 8px;
+}
+
+/*Estilizando apenas a mensagem da classe you*/
+#content #messages > .message.you{
+    margin-left: auto;
+}
+
+/*Estilizando apenas o corpo da mensagem com class you*/
+#content #messages .message.you > .body{
+    background: var(--message-you-color);
+    border-radius: 8px 8px 0 8px;
+}
+
+/*Container geral input*/
+#bottom{
+    margin-top: 30px;
+    background-color: var(--send-color);
+    padding: 14px 24px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+}
+
+/*Input*/
+#bottom > input{
+    flex: 1;
+    font-size: 12px;
+    outline: none;
+    color: var(--texts-color);
+}
+
+/*Placeholder*/
+#bottom > input::placeholder{
+    color: var(--texts-color);
+}
+
+/*Quando o input ta em foco*/
+#bottom:focus-within{
+    outline: 2px solid var(--texts-color);
+}
+
+/*Botao e Input*/
+#bottom > input, button{
+    background-color: transparent;
+    border: none;
+}
+
+/*Botao*/
+#bottom button > i{
+    font-size: 24px;
+    color: var(--texts-color);
+}
